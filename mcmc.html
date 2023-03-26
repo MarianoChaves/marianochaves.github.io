@@ -70,29 +70,25 @@
                     <h2 class="mb-5">Basics</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Compiling and usage</h3>
-                            <p>In order to use the nuMCMC, you should compile the program using the <b>make</b> command in the gnu terminal. 
-                                Once you have compiled the program, you are able to use it in any program. </p>
-                            <p>To user the MCMC sampling in another program you should use the flag <b>-lnu</b>. Inside the program you should refer to the location of the file using <i>#include "<b>(the path goes here)</b>/nu.h"</i>. </p>
+                            <h3 class="mb-0">Compiling and Usage</h3>
+                            <p>To use nuMCMC, compile the program using the <b>make</b> command in the GNU terminal. Once compiled, the program can be used in any other program. </p>
+                            <p>To use the MCMC sampling in another program, use the flag <b>-lnu</b> and refer to the location of the file using <i>#include "(the path goes here)/nu.h"</i>.</p>
                             <h3 class="mb-0">Understanding the MCMC</h3>
-                            <p>The MCMC sampling is an algorithm that has as goal sampling some probability distribution \(p(\vec{x})\), where \(\vec{x}\) is an N-dimensional vector. The advantage of using affine invariant MCMC is that you don't need to have a prior acknowledgement of the distribution for all the variables. 
-                                There are three main rules when running MCMC:
+                            <p>The MCMC sampling algorithm aims to sample some probability distribution \(p(\vec{x})\), where \(\vec{x}\) is an N-dimensional vector. One advantage of using affine invariant MCMC is that you don't need to have prior knowledge of the distribution for all the variables. There are three main rules when running MCMC:
                                 <ul>
                                     <li>Choose your initial guess;</li>
                                     <li>Ensure convergence;</li>
-                                    <li>Get as many samples as you need;</li>
+                                    <li>Get as many samples as you need.</li>
                                 </ul>
                             </p>
-                            <p>In the algorithm, we consider two elements: walkers and ensembles of walkers. A walker is a vector in the N-dimensional space that stores one sampling story. An ensemble is a set of walkers.
-                                In the beginning, you choose an ensemble of walkers with randomly organized initial positions.</p>
-                            <p>Let's use as example, the function </p>
+                            <p>In the algorithm, we consider two elements: walkers and ensembles of walkers. A walker is a vector in the N-dimensional space that stores one sampling story. An ensemble is a set of walkers. In the beginning, you choose an ensemble of walkers with randomly organized initial positions.</p>
+                            <p>As an example, let's consider the function </p>
                             <p style="text-align: center;">\(-\frac{1}{2}\log \left[p(\vec{x})\right]=\sum_i \frac{(x_i-c_i)^2}{\sigma^2_i}-\frac{(x_0-c_0)(x_1-c_1)}{\sigma_0\sigma_1}-\frac{(x_2-c_2)(x_1-c_1)}{\sigma_2\sigma_1},\)</p>
                             <p>where \(c_0=50\), \(c_0=1\), \(c_0=20\), \(\sigma_0=1\), \(\sigma_1=1\) and \(\sigma_2=20\).</p>
                         </div>
                     </div>
                 </div>
-
-            </section>
+            </section> 
             <hr class="m-0" />
             <!-- Education-->
             <section class="resume-section" id="sampling">
@@ -101,7 +97,7 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">The initial guess</h3>
-                            <p>The following code can be used to generate the initial guess in the file <b>guess.csv</b>.</p>
+                            <p>The code below generates the initial guess and saves it in a file named <b>guess.csv</b>:</p>
                             <div class="subheading mb-3">The code</div>
                             The C++ code:
                             <pre>
@@ -121,13 +117,14 @@ my_sample.save_state(file_name); /*SAVE THE PRESENT STATE OF THE ENSEMBLE*/
 ...
                                 </code>
                             </pre>
-                            For the last code, if we assume \(250\) walkers we the results that are scattered on Fig. 1, and has can you see the points are scattered uniformly around the chosen region.
+                            In the last code, assuming 250 walkers, the results are scattered as shown in Fig. 1. As you can see, the points are uniformly distributed around the chosen region.
                             <figure style="text-align: center;">
                                 <img src="assets/img/example_0.png" alt="Trulli" style="width:50%">
                                 <figcaption>Fig.1 - Scattered initial guess.</figcaption>
                               </figure>
                                     <h3 class="mb-0">Running</h3>
-                                    In order to get more points, we need to use the <i>run</i> (the <i>run_parallel for parallelized running</i>) method using more steps, for the fig. 2 we use 50 steps. We also emphasise that the function that should be passed to the method <i>run</i>, is \(-\frac{1}{2}\log(p) \). 
+                                    To obtain more samples, we can run the MCMC algorithm for more steps using the <i>run</i> method (or the <i>run_parallel</i> method for parallelized running). For example, in Figure 2, we ran the algorithm for 50 steps. It is important to note that the function passed to the <i>run</i> method should be 
+                                    \(-\frac{1}{2}\log(p) \) to sample the probability distribution. 
                                     <pre>
                                         <code class="language-c++">
 ...
@@ -138,14 +135,13 @@ my_sample.save_chain_walker(file_sample_name,header);
 ...                                        
                                         </code>
                                     </pre>
-                                    The "save_chain_walker" method saves the history of the walkers as a CSV file which the last column is the walker identifier given by an integer going from 1 to the number of walkers. 
-                                    In fig 2. we show the result of the output. Bellow we show an interactive walk for the x and y parameters.
+                                    The method 'save_chain_walker' saves the walkers' history as a CSV file where the last column is the walker identifier, given by an integer ranging from 1 to the number of walkers. Fig. 2 shows the output results. Below, we present an interactive walk for the x and y parameters.
                                     <iframe width="900" height="800" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~marianochaves/1.embed"></iframe>                                  
                                     <figure style="text-align: center;">
                                         <img src="assets/img/example_1.png" alt="Trulli" style="width:50%">
                                         <figcaption>Fig.2 - Scattered history of the walkers.</figcaption>
                                       </figure>
-                            <p>In figure 2 you can see that we still have the history of the walkers in the path from our initial guess to the exact distribution. To solve that we need to insure convergence, this is the next topic.</p>
+                            <p>In Figure 2, you can observe that the history of the walkers is still visible in the path from the initial guess to the exact distribution. In order to ensure convergence, we need to take additional steps. This is the next topic that we will cover.</p>
                         </div>
                     </div>
                 </div>
@@ -156,7 +152,7 @@ my_sample.save_chain_walker(file_sample_name,header);
                 <div class="resume-section-content">
                     <h2 class="mb-5">Convergence</h2>
                     <div class="subheading mb-3">Convergence time series</div>
-                    <div >A way to check the convergence of the walkers, is to plot an history of the walkers in each parameter of interest. The convergence happens when the walkers stabilize their walks in a given neighbourhood. In order to do that you can do a first run on the history and latter use their stabilized configuration as initial configuration for a next run. The time series of the history for the walkers can be seen below:</div>
+                    <div >A way to check the convergence of the walkers is to plot their history in each parameter of interest. Convergence happens when the walkers stabilize their walks in a given neighborhood. To do this, you can run the algorithm once to get a history of the walkers, and then plot their time series for each parameter. If the walkers have not converged, you can use their final configuration as the initial configuration for another run, and repeat this process until convergence is achieved. The time series of the walker history can be seen below:</div>
                     </br>
                     <figure style="text-align: center;">
                         <img src="assets/img/example_2.png" alt="Trulli" style="width:50%">
