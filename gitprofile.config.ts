@@ -49,7 +49,7 @@ const CONFIG = {
     email: 'marianoechaves@gmail.com',
   },
   resume: {
-    fileUrl: 'https://github.com/MarianoChaves/marianochaves.github.io/blob/main/CV.pdf',
+    fileUrl: 'https://github.com/MarianoChaves/marianochaves.github.io/raw/main/CV.pdf',
   },
   skills: [
     'Python', 'C++', 'Git', 'CI/CD', 'CUDA', 'OOP', 'Design Patterns',
