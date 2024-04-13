@@ -8,20 +8,30 @@ const CONFIG = {
   projects: {
     github: {
       display: true,
-      header: 'Github Projects',
-      mode: 'automatic', // Changed to manual to list specific projects
-      automatic: {
-        sortBy: 'stars', // Sort projects by 'stars' or 'updated'
-        limit: 2, // How many projects to display.
-        exclude: {
-          forks: false, // Forked projects will not be displayed if set to true.
-          projects: [], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
-        },
-      },
+      header: 'Projects',
+      mode: 'manual', // Changed to manual to list specific projects
+      manual: []
     },
     external: {
-      header: 'My Projects',
-      projects: [],
+      header: 'Public Projects',
+      projects: [
+        {
+          title: 'nuMCMC',
+          description:
+            'The MCMC algorithm using C++: based on emcee. The library can be used to create samplings using Markov chain Monte Carlo (MCMC).',
+          imageUrl:
+            'https://github.com/MarianoChaves/MCMC/raw/main/examples/example-0/pdf.png',
+          link: 'https://github.com/MarianoChaves/MCMC',
+        },
+        {
+          title: 'Wingbits',
+          description:
+            'Wingbits has implemented a unique reward system using blockchain technology to fairly compensate data providers. This system ensures transparency and equity, as rewards are distributed based on the amount of data sent and the provider’s commitment to the network.',
+          imageUrl:
+            'https://wingbits.com/static/media/landing_world.e7f1aec6945b8474ff8a3d8060aac5bd.svg',
+          link: 'https://wingbits.com/',
+        },
+      ],
     },
   },
   seo: {
