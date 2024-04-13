@@ -54,7 +54,7 @@ const CONFIG = {
   skills: [
     'Python', 'C++', 'Git', 'CI/CD', 'CUDA', 'OOP', 'Design Patterns',
     'AWS Cloud', 'Terraform', 'Data pipelines', 'Glue', 'Big Data', 'PySpark',
-    'Machine Learning', 'Statistics', 'PyTorch', 'OpenCV',
+    'Machine Learning', 'Statistics', 'PyTorch', 'OpenCV', 'React', 'Large Language Models', 'Artificial Inteligence'
   ],
   experiences: [
     {
@@ -85,6 +85,12 @@ const CONFIG = {
       degree: 'Doctorate in Physics',
       from: '2018',
       to: '2022',
+    },
+    {
+      institution: 'Karlshure Institute of Technology, Germany',
+      degree: 'Visiting PhD Student',
+      from: '2020',
+      to: '2021',
     },
     {
       institution: 'Universidade Federal Fluminense, Brazil',
