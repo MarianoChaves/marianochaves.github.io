@@ -47,6 +47,7 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
+  const [avatar_url, setAvatarUrl] = useState("");
 
   const getGithubProjects = useCallback(
     async (publicRepoCount: number): Promise<GithubProject[]> => {
@@ -114,6 +115,8 @@ const GitProfile = ({ config }: { config: Config }) => {
         location: data.location || '',
         company: data.company || '',
       });
+
+      setAvatarUrl(data.avatar_url)
 
       if (!sanitizedConfig.projects.github.display) {
         return;
@@ -197,7 +200,9 @@ const GitProfile = ({ config }: { config: Config }) => {
               appliedTheme={theme}
             />
             <div className={`p-4 lg:p-10 min-h-full ${BG_COLOR}`}>
-              <FloatingChat />
+              <FloatingChat 
+                avatar_url={avatar_url}
+              />
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
                 <div className="col-span-1">
                   <div className="grid grid-cols-1 gap-6">
