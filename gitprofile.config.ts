@@ -68,28 +68,28 @@ const CONFIG = {
   ],
   experiences: [
     {
-      company: 'Itaú-Unibanco Holding',
+      company: 'Itaú-Unibanco Holding, Brazil',
       position: 'Senior Data Scientist',
       from: 'Jan 2024',
       to: 'Present',
       companyLink: 'https://www.itau.com.br/',
     },
     {
-      company: 'Wingbits',
+      company: 'Wingbits, Sweden',
       position: 'Senior Software Engineer (Part-time)',
       from: 'Jan 2023',
       to: 'Present',
       companyLink: 'https://wingbits.com/',
     },
     {
-      company: 'Itaú-Unibanco Holding',
+      company: 'Itaú-Unibanco Holding, Brazil',
       position: 'Data Scientist',
       from: 'Jan 2021',
       to: 'Dez 2024',
       companyLink: 'https://www.itau.com.br/',
     },
     {
-      company: 'Itaú-Unibanco',
+      company: 'Itaú-Unibanco Holding, Brazil',
       position: 'Model validation analyst',
       from: 'Oct 2021',
       to: 'Dez 2021',
