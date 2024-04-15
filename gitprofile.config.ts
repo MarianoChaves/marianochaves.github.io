@@ -75,6 +75,13 @@ const CONFIG = {
       companyLink: 'https://www.itau.com.br/',
     },
     {
+      company: 'Wingbits',
+      position: 'Senior Software Engineer (Part-time)',
+      from: 'Jan 2023',
+      to: 'Present',
+      companyLink: 'https://wingbits.com/',
+    },
+    {
       company: 'Itaú-Unibanco Holding',
       position: 'Data Scientist',
       from: 'Jan 2021',
@@ -87,13 +94,6 @@ const CONFIG = {
       from: 'Oct 2021',
       to: 'Dez 2021',
       companyLink: 'https://www.itau.com.br/',
-    },
-    {
-      company: 'Wingbits',
-      position: 'Senior Software Engineer (Part-time)',
-      from: 'Jan 2023',
-      to: 'Present',
-      companyLink: 'https://wingbits.com/',
     },
   ],
   educations: [
