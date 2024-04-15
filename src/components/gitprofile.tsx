@@ -47,9 +47,6 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
-  const [showChat, setShowChat] = useState(false);
-
-  const toggleChat = () => setShowChat(!showChat);
 
   const getGithubProjects = useCallback(
     async (publicRepoCount: number): Promise<GithubProject[]> => {
@@ -183,18 +180,6 @@ const GitProfile = ({ config }: { config: Config }) => {
     }
   };
 
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    outline: 'none',  // To remove the default focus outline
-  };
 
   return (
     <HelmetProvider>

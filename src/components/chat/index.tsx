@@ -54,6 +54,7 @@ const ChatComponent = () => {
                     sx={{ ml: 1, flex: 1 }}
                     placeholder="Available soon..."
                     inputProps={{ 'aria-label': 'type your message' }}
+                    disabled={true}
                     value={inputText}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)}
                     onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && sendMessage()}
