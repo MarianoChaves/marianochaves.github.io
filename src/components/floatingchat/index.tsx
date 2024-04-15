@@ -23,7 +23,7 @@ const FloatingChat = () => {
         ) : (
           <Paper elevation={3} style={{ width: 300, height: isMinimized ? 50 : 400, transition: 'height 0.3s' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px' }}>
-              <span>Chat with MarianoBot!</span>
+              <span>Ask about me!</span>
               <div>
                 <IconButton onClick={minimizeChat}>
                   {isMinimized ? <ExpandMoreIcon /> : <MinimizeIcon />}
