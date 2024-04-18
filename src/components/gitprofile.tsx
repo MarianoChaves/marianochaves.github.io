@@ -186,6 +186,7 @@ const GitProfile = ({ config }: { config: Config }) => {
 
   return (
     <HelmetProvider>
+      
       <div className="fade-in h-screen">
         {error ? (
           <ErrorPage
@@ -200,9 +201,6 @@ const GitProfile = ({ config }: { config: Config }) => {
               appliedTheme={theme}
             />
             <div className={`p-4 lg:p-10 min-h-full ${BG_COLOR}`}>
-              <FloatingChat 
-                avatar_url={avatar_url}
-              />
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
                 <div className="col-span-1">
                   <div className="grid grid-cols-1 gap-6">
