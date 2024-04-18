@@ -20,8 +20,9 @@ const ChatComponent = () => {
 
     const sendMessage = async () => {
         if (inputText.trim()) {
-            const userMessage = { type: 'user', text: inputText };
-            setMessages((prevMessages) => [...prevMessages, userMessage]);
+            const userMessage = { type: 'assistant', text: "I'm currently available on <a href='https://mariano-cv.zapier.app' target='_blank'>https://mariano-cv.zapier.app</a>" };
+            //setMessages((prevMessages) => [...prevMessages, userMessage]);
+            setMessages(() => [userMessage]);
             try {
                 const response = await axios.post('/api/chat', { message: inputText });
                 const botMessage = { type: 'bot', text: response.data.answer };
@@ -38,7 +39,11 @@ const ChatComponent = () => {
             <List sx={{ maxHeight: 300, overflow: 'auto' }}>
                 {messages.map((msg, index) => (
                     <ListItem key={index} sx={{ backgroundColor: msg.type === 'user' ? '#e1f5fe' : '#fffde7', mb: 0.5 }}>
-                        <ListItemText primary={msg.text} />
+                        <ListItemText
+                            primary={
+                                <span dangerouslySetInnerHTML={{ __html: msg.text }} />
+                            }
+                        />
                     </ListItem>
                 ))}
             </List>
@@ -54,12 +59,12 @@ const ChatComponent = () => {
                     sx={{ ml: 1, flex: 1 }}
                     placeholder="Available soon..."
                     inputProps={{ 'aria-label': 'type your message' }}
-                    disabled={true}
+                    disabled={false}
                     value={inputText}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)}
                     onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && sendMessage()}
                 />
-                <IconButton sx={{ p: '10px' }} aria-label="send" onClick={sendMessage} disabled={true}>
+                <IconButton sx={{ p: '10px' }} aria-label="send" onClick={sendMessage} disabled={false}>
                     <SendIcon />
                 </IconButton>
             </Box>
