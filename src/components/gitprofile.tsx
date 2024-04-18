@@ -30,7 +30,7 @@ import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
-import FloatingChat from './floatingchat'; 
+//import FloatingChat from './floatingchat'; 
 
 /**
  * Renders the GitProfile component.
@@ -47,7 +47,7 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
-  const [avatar_url, setAvatarUrl] = useState("");
+  //const [avatar_url, setAvatarUrl] = useState("");
 
   const getGithubProjects = useCallback(
     async (publicRepoCount: number): Promise<GithubProject[]> => {
@@ -116,7 +116,7 @@ const GitProfile = ({ config }: { config: Config }) => {
         company: data.company || '',
       });
 
-      setAvatarUrl(data.avatar_url)
+      //setAvatarUrl(data.avatar_url)
 
       if (!sanitizedConfig.projects.github.display) {
         return;
