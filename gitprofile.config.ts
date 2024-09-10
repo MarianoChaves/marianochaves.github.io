@@ -77,7 +77,7 @@ const CONFIG = {
     {
       company: 'Wingbits, Sweden',
       position: 'Senior Software Engineer (Part-time)',
-      from: 'Jan 2023',
+      from: 'Jan 2024',
       to: 'Present',
       companyLink: 'https://wingbits.com/',
     },
